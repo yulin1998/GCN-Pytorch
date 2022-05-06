@@ -2,7 +2,7 @@
 #@Author      : YuLin
 #@Date        : 2022-05-06 15:04:12
 #@LastEditors : YuLin
-#@LastEditTime: 2022-05-06 20:21:41
+#@LastEditTime: 2022-05-06 21:15:55
 #@Description : GCN代码学习
 # # # # # # # #
 import numpy as np
@@ -19,10 +19,11 @@ def encode_onehot(labels):
     return labels_onehot
 
 
-def load_data(path="../data/cora/", dataset="cora"):
+def load_data(path="./data/cora/", dataset="cora"):
     """Load citation network dataset (cora only for now)"""
     print('Loading {} dataset...'.format(dataset))
-
+    import os
+    print(os.listdir('./data/cora/'))
     idx_features_labels = np.genfromtxt("{}{}.content".format(path, dataset),
                                         dtype=np.dtype(str))
     features = sp.csr_matrix(idx_features_labels[:, 1:-1], dtype=np.float32)
@@ -97,5 +98,5 @@ if __name__ == '__main__':
     # a = sp.csr_matrix((data, indexs, indptr), shape=(3, 3))
     # print(a.todense())
     # print(t)
-    i = [[0,2], [1, 0], [1, 2]]
-    print(zip(*i))
+    adj, features, labels, idx_train, idx_val, idx_test = load_data()
+    pass
