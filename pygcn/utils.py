@@ -2,7 +2,7 @@
 #@Author      : YuLin
 #@Date        : 2022-05-06 15:04:12
 #@LastEditors : YuLin
-#@LastEditTime: 2022-05-10 11:25:21
+#@LastEditTime: 2022-05-10 13:49:21
 #@Description : GCN代码学习
 # # # # # # # #
 import numpy as np
@@ -92,14 +92,6 @@ def sparse_mx_to_torch_sparse_tensor(sparse_mx):
 
 
 if __name__ == '__main__':
-    # sp.csr_matrix用法
-    # D = np.matrix([[0, 0, 0], [1, 0, 2], [0, 3, 4]])
-    # data = np.array([0, 0, 0, 2, 1, 4, 5])
-    # indexs = np.array([0, 1, 2, 0, 2, 1, 2])
-    # indptr = np.array([0, 3, 5, 7])
-    # t = sp.csr_matrix(D)
-    # a = sp.csr_matrix((data, indexs, indptr), shape=(3, 3))
-    # print(a.todense())
-    # print(t)
     adj, features, labels, idx_train, idx_val, idx_test = load_data()
+    print(adj.shape, features.shape, labels.shape)
     pass
