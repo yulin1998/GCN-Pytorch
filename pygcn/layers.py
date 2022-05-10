@@ -1,3 +1,10 @@
+# # # # # # # #
+#@Author      : YuLin
+#@Date        : 2022-05-06 15:04:12
+#@LastEditors : YuLin
+#@LastEditTime: 2022-05-10 15:35:11
+#@Description : GCN layer
+# # # # # # # #
 import math
 
 import torch
@@ -29,6 +36,7 @@ class GraphConvolution(Module):
             self.bias.data.uniform_(-stdv, stdv)
 
     def forward(self, input, adj):
+        # output of GCN layer = A*X*W
         support = torch.mm(input, self.weight)
         output = torch.spmm(adj, support)
         if self.bias is not None:

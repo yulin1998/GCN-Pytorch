@@ -1,6 +1,13 @@
+# # # # # # # #
+#@Author      : YuLin
+#@Date        : 2022-05-06 15:04:12
+#@LastEditors : YuLin
+#@LastEditTime: 2022-05-10 16:53:04
+#@Description : GCN Model
+# # # # # # # #
 import torch.nn as nn
 import torch.nn.functional as F
-from pygcn.layers import GraphConvolution
+from .layers import GraphConvolution
 
 
 class GCN(nn.Module):
@@ -12,6 +19,7 @@ class GCN(nn.Module):
         self.dropout = dropout
 
     def forward(self, x, adj):
+        # f(X,A) = softmax(A*ReLU(A*X*W0)*W1)
         x = F.relu(self.gc1(x, adj))
         x = F.dropout(x, self.dropout, training=self.training)
         x = self.gc2(x, adj)

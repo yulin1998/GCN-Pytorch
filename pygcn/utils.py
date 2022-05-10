@@ -2,7 +2,7 @@
 #@Author      : YuLin
 #@Date        : 2022-05-06 15:04:12
 #@LastEditors : YuLin
-#@LastEditTime: 2022-05-10 13:49:21
+#@LastEditTime: 2022-05-10 15:47:14
 #@Description : GCN代码学习
 # # # # # # # #
 import numpy as np
@@ -94,4 +94,5 @@ def sparse_mx_to_torch_sparse_tensor(sparse_mx):
 if __name__ == '__main__':
     adj, features, labels, idx_train, idx_val, idx_test = load_data()
     print(adj.shape, features.shape, labels.shape)
+    print(labels.max().item() + 1)
     pass
